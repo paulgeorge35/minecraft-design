@@ -112,6 +112,12 @@ type SettingsContextType = {
     reducedDebugInfo: boolean;
     onlyShowSecureChat: boolean;
   };
+  language: {
+    font: {
+      forceUnicode: boolean;
+      japaneseGlyphs: boolean;
+    };
+  };
 };
 
 type SettingsContextProviderType = {
@@ -212,6 +218,12 @@ const defaultSettings: SettingsContextType = {
     hideMatchedNames: true,
     reducedDebugInfo: false,
     onlyShowSecureChat: false,
+  },
+  language: {
+    font: {
+      forceUnicode: false,
+      japaneseGlyphs: false,
+    },
   },
 };
 
