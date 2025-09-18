@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import accessibilityIcon from "@/public/accessibility.png";
-import header from "@/public/header.png";
-import languageIcon from "@/public/languages.png";
+import accessibilityIcon from "@/public/accessibility.webp";
+import header from "@/public/header.webp";
+import languageIcon from "@/public/languages.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { Button, buttonVariants } from "./_components/button";

@@ -46,7 +46,6 @@ const Slider = ({
 
   const updateValue = useCallback(
     (newValue: number) => {
-      // Quantize value to step increments
       const steppedValue = Math.round((newValue - min) / step) * step + min;
       const clampedValue = Math.max(min, Math.min(max, steppedValue));
 
@@ -126,7 +125,7 @@ const Slider = ({
         className
       )}
       style={{
-        background: "url(/stone-texture.png) repeat",
+        background: "url(/stone-texture.webp) repeat",
         backgroundSize: "48px 48px",
       }}
       onMouseDown={handleMouseDown}
@@ -184,7 +183,7 @@ const SliderThumb = ({ value, min, max }: SliderThumbProps) => {
       )}
       style={{
         left: `max(calc(${percentage}% - 20px), 0%)`,
-        background: "url(/stone-texture.png) repeat",
+        background: "url(/stone-texture.webp) repeat",
         backgroundSize: "48px 48px",
       }}
     />
@@ -249,8 +248,8 @@ const SliderValue = ({
     let animationId: number;
     let direction = 1;
     let currentTranslate = 0;
-    const speed = 0.5; // pixels per frame
-    const pauseDuration = 60; // frames to pause at each end
+    const speed = 0.5;
+    const pauseDuration = 60;
     let pauseCounter = 0;
 
     const animate = () => {

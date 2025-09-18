@@ -31,11 +31,6 @@ const minecraftFont = localFont({
       weight: "400",
       style: "italic",
     },
-    // {
-    //   path: "./fonts/Minecraft_BoldItalic.otf",
-    //   weight: "700",
-    //   style: "bold-italic",
-    // },
   ],
   variable: "--font-minecraft",
 });
@@ -55,7 +50,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
-          background: "url(/image.png) no-repeat center center",
+          background: "url(/image.webp) no-repeat center center",
           backgroundSize: "cover",
         }}
       >
