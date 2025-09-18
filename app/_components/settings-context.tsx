@@ -117,6 +117,7 @@ type SettingsContextType = {
 type SettingsContextProviderType = {
   settings: SettingsContextType;
   setSettings: (settings: SettingsContextType) => void;
+  isLoaded: boolean;
 };
 
 const defaultSettings: SettingsContextType = {
@@ -217,6 +218,7 @@ const defaultSettings: SettingsContextType = {
 export const SettingsContext = createContext<SettingsContextProviderType>({
   settings: defaultSettings,
   setSettings: () => {},
+  isLoaded: false,
 });
 
 export const SettingsProvider = ({
@@ -224,17 +226,49 @@ export const SettingsProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [settings, setSettings] = useState(() => {
-    const storedSettings = localStorage?.getItem("minecraft-settings");
-    return storedSettings ? JSON.parse(storedSettings) : defaultSettings;
-  });
+  const [settings, setSettings] = useState(defaultSettings);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("minecraft-settings", JSON.stringify(settings));
-  }, [settings]);
+    if (
+      typeof window !== "undefined" &&
+      typeof window.localStorage !== "undefined"
+    ) {
+      try {
+        const storedSettings =
+          window.localStorage.getItem("minecraft-settings");
+        if (storedSettings) {
+          setSettings(JSON.parse(storedSettings));
+        }
+      } catch (error) {
+        console.warn("Failed to load settings from localStorage:", error);
+      } finally {
+        setIsLoaded(true);
+      }
+    } else {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      typeof window.localStorage !== "undefined" &&
+      isLoaded
+    ) {
+      try {
+        window.localStorage.setItem(
+          "minecraft-settings",
+          JSON.stringify(settings)
+        );
+      } catch (error) {
+        console.warn("Failed to save settings to localStorage:", error);
+      }
+    }
+  }, [settings, isLoaded]);
 
   return (
-    <SettingsContext value={{ settings, setSettings }}>
+    <SettingsContext value={{ settings, setSettings, isLoaded }}>
       {children}
     </SettingsContext>
   );
