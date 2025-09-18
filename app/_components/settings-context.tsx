@@ -154,7 +154,7 @@ const defaultSettings: SettingsContextType = {
   },
   video: {
     resolution: 1,
-    biomeBlend: 100,
+    biomeBlend: 2,
     graphics: "fast",
     renderDistance: 10,
     chunkBuilder: "threaded",
@@ -177,7 +177,7 @@ const defaultSettings: SettingsContextType = {
     autosaveIndicator: true,
     glintSpeed: 100,
     glintStrength: 100,
-    menuBackgroundBlur: 100,
+    menuBackgroundBlur: 5,
     viewBobbing: true,
     cloudDistance: 10,
   },
