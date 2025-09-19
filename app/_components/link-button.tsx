@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Button } from "./button";
 
 interface LinkButtonProps {
@@ -11,6 +12,10 @@ interface LinkButtonProps {
 
 export const LinkButton = ({ children, className, href }: LinkButtonProps) => {
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch(href);
+  }, [href, router]);
 
   const handleClick = () => {
     router.push(href);
