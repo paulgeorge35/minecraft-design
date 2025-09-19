@@ -8,7 +8,7 @@ export default function KeyBinds() {
       </h1>
       <div className="relative flex w-full grow flex-col items-center gap-4 border-[#3f3f3f] border-y-2 p-4">
         <div className="absolute inset-0 border-black border-y-2 bg-black/40" />
-        <div className="flex w-fit min-w-xl flex-col justify-center gap-12">
+        <div className="flex w-3xl flex-col justify-center gap-12">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2"></div>
         </div>
       </div>

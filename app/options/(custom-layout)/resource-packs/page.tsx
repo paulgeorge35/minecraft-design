@@ -30,7 +30,7 @@ export default function ResourcePacks() {
           <Spinner />
         </div>
       </div>
-      <span className="mt-auto grid w-full max-w-3xl grid-cols-2 gap-4 p-4">
+      <span className="mt-auto grid w-3xl grid-cols-2 gap-4 py-4">
         <Button>Open Pack Folder</Button>
         <DoneButton />
       </span>

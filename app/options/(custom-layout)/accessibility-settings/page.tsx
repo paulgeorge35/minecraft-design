@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { Fragment } from "react";
-import { buttonVariants } from "@/app/_components/button";
 import { DoneButton } from "@/app/_components/done-button";
+import { LinkButton } from "@/app/_components/link-button";
 
 export default function AccessibilitySettings() {
   return (
@@ -11,17 +10,14 @@ export default function AccessibilitySettings() {
       </h1>
       <div className="relative flex w-full grow flex-col items-center gap-4 border-[#3f3f3f] border-y-2 p-4">
         <div className="absolute inset-0 border-black border-y-2 bg-black/40" />
-        <div className="flex w-fit min-w-xl flex-col justify-center gap-12">
+        <div className="flex w-3xl flex-col justify-center gap-12">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2"></div>
         </div>
       </div>
-      <span className="mt-auto grid w-full max-w-3xl grid-cols-2 gap-4 p-4">
-        <Link
-          href="https://aka.ms/MinecraftJavaAccessibility"
-          className={buttonVariants()}
-        >
+      <span className="mt-auto grid w-full max-w-3xl grid-cols-2 gap-4 py-4">
+        <LinkButton href="https://aka.ms/MinecraftJavaAccessibility">
           Accessibility Guide
-        </Link>
+        </LinkButton>
         <DoneButton />
       </span>
     </Fragment>

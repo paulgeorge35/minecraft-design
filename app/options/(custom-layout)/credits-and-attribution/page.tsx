@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Fragment } from "react";
-import { Button, buttonVariants } from "@/app/_components/button";
+import { Button } from "@/app/_components/button";
 import { DoneButton } from "@/app/_components/done-button";
+import { LinkButton } from "@/app/_components/link-button";
 
 export default function CreditsAndAttribution() {
   return (
@@ -10,21 +10,21 @@ export default function CreditsAndAttribution() {
         Credits & Attribution
       </h1>
       <div className="flex w-full grow flex-col items-center gap-4 p-4 pt-12">
-        <div className="flex h-full w-fit min-w-xl flex-col justify-center gap-4">
-          <Button>Credits</Button>
-          <Link
+        <div className="flex h-full w-3xl flex-col items-center justify-center gap-4">
+          <Button className="w-[300px]">Credits</Button>
+          <LinkButton
             href="https://aka.ms/MinecraftJavaAttribution"
-            className={buttonVariants()}
+            className="w-[300px]"
           >
             Attribution
-          </Link>
-          <Link
+          </LinkButton>
+          <LinkButton
             href="https://aka.ms/MinecraftJavaLicenses"
-            className={buttonVariants()}
+            className="w-[300px]"
           >
             Licenses
-          </Link>
-          <DoneButton className="mt-auto" />
+          </LinkButton>
+          <DoneButton className="mt-auto w-full" />
         </div>
       </div>
     </Fragment>
