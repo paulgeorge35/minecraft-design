@@ -1,17 +1,17 @@
-import { buttonVariants } from "@/app/_components/button";
 import Link from "next/link";
 import { Fragment } from "react";
+import { buttonVariants } from "@/app/_components/button";
 import { AutoJump, OperatorItemsTab, Sneak, Sprint } from "./_components";
 
 export default function Controls() {
   return (
     <Fragment>
-      <h1 className="text-2xl font-minecraft text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f] p-4">
+      <h1 className="p-4 font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]">
         Controls
       </h1>
-      <div className="flex flex-col items-center gap-4 grow border-y-2 border-[#3f3f3f] w-full relative p-4">
-        <div className="absolute inset-0 bg-black/40 border-y-2 border-black" />
-        <div className="flex flex-col gap-12 w-fit min-w-xl justify-center">
+      <div className="relative flex w-full grow flex-col items-center gap-4 border-[#3f3f3f] border-y-2 p-4">
+        <div className="absolute inset-0 border-black border-y-2 bg-black/40" />
+        <div className="flex w-fit min-w-xl flex-col justify-center gap-12">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             <Link
               href="/options/controls/mouse-settings"

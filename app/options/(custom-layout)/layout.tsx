@@ -4,7 +4,7 @@ export default function CustomOptionsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center h-screen bg-black/20 backdrop-blur-sm">
+    <div className="flex h-screen flex-col items-center bg-black/20 backdrop-blur-sm">
       {children}
     </div>
   );

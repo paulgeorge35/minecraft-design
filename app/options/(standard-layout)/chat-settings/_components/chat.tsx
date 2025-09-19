@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  ChatVisibility,
+  type ChatVisibility,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const Chat = () => {
   const chat: ChatVisibility[] = ["shown", "hidden", "commands-only"];

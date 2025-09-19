@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  ChunkBuilder as ChunkBuilderType,
+  type ChunkBuilder as ChunkBuilderType,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const ChunkBuilder = () => {
   const chunkBuilder: ChunkBuilderType[] = [
@@ -38,8 +38,8 @@ export const ChunkBuilder = () => {
         settings.video.chunkBuilder === "threaded"
           ? "Nearby chunks are compiled in parallel threads. This may result in brief visual holes when blocks are destroyed."
           : settings.video.chunkBuilder === "semi-blocking"
-          ? "Some actions within a chunk will recompile the chunk immediately. This includes block placing & destroying."
-          : "Nearby chunks are always compiled immediately. This may impact game performance when blocks are placed or destroyed."
+            ? "Some actions within a chunk will recompile the chunk immediately. This includes block placing & destroying."
+            : "Nearby chunks are always compiled immediately. This may impact game performance when blocks are placed or destroyed."
       }
     >
       Chunk Builder: {chunkBuilderLabels[settings.video.chunkBuilder]}

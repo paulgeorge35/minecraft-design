@@ -1,7 +1,8 @@
 "use client";
 
+import type React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
 
 interface TooltipProps {
   content?: string;
@@ -16,11 +17,11 @@ export const Tooltip = ({ content, children }: TooltipProps) => {
   const [childrenRect, setChildrenRect] = useState<DOMRect | null>(null);
   const childrenRef = useRef<HTMLDivElement>(null);
 
-  const updateChildrenRect = () => {
+  const updateChildrenRect = useCallback(() => {
     if (childrenRef.current) {
       setChildrenRect(childrenRef.current.getBoundingClientRect());
     }
-  };
+  }, []);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -62,47 +63,45 @@ export const Tooltip = ({ content, children }: TooltipProps) => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isVisible, content]);
+  }, [isVisible, content, updateChildrenRect]);
 
   if (!content) return children;
 
   return (
-    <>
+    <div
+      tabIndex={-1}
+      ref={childrenRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      className="grid w-full"
+    >
+      {children}
       <div
         tabIndex={-1}
-        ref={childrenRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        className="grid w-full"
-      >
-        {children}
-        <div
-          tabIndex={-1}
-          className={cn(
-            "fixed z-50 bg-black/90 text-white font-minecraft text-shadow-[2px_2px_0_#3f3f3f] text-lg pointer-events-none max-w-100 word-wrap-break-word p-[3px] pixel-corners",
-            {
-              hidden: !isVisible,
-            }
-          )}
-          style={{
-            left: isHovering ? cursorPosition.x + 10 : undefined,
-            top: isHovering
-              ? cursorPosition.y + 20
-              : isFocused && childrenRect
+        className={cn(
+          "word-wrap-break-word pixel-corners pointer-events-none fixed z-50 max-w-100 bg-black/90 p-[3px] font-minecraft text-lg text-shadow-[2px_2px_0_#3f3f3f] text-white",
+          {
+            hidden: !isVisible,
+          },
+        )}
+        style={{
+          left: isHovering ? cursorPosition.x + 10 : undefined,
+          top: isHovering
+            ? cursorPosition.y + 20
+            : isFocused && childrenRect
               ? childrenRect.bottom + 5
               : undefined,
-          }}
-        >
-          <div className="w-full h-full bg-gradient-to-b from-violet-800/50 to-violet-800/20 pixel-corners p-[2px]">
-            <div className="w-full h-full bg-black/90 pixel-corners px-2">
-              {content}
-            </div>
+        }}
+      >
+        <div className="pixel-corners h-full w-full bg-gradient-to-b from-violet-800/50 to-violet-800/20 p-[2px]">
+          <div className="pixel-corners h-full w-full bg-black/90 px-2">
+            {content}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

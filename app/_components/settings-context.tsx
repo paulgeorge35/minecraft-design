@@ -271,7 +271,7 @@ export const SettingsProvider = ({
       try {
         window.localStorage.setItem(
           "minecraft-settings",
-          JSON.stringify(settings)
+          JSON.stringify(settings),
         );
       } catch (error) {
         console.warn("Failed to save settings to localStorage:", error);

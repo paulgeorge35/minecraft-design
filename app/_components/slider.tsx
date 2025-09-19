@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import { Tooltip } from "./tooltip";
 
 interface SliderProps
@@ -57,7 +57,7 @@ const Slider = ({
 
       onChange?.(clampedValue);
     },
-    [min, max, step, isControlled, onChange]
+    [min, max, step, isControlled, onChange, currentValue],
   );
 
   const getValueFromMouseEvent = useCallback(
@@ -69,7 +69,7 @@ const Slider = ({
       const percentage = Math.max(0, Math.min(1, x / rect.width));
       return min + (max - min) * percentage;
     },
-    [min, max, currentValue]
+    [min, max, currentValue],
   );
 
   const handleMouseDown = useCallback(
@@ -97,7 +97,7 @@ const Slider = ({
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     },
-    [disabled, getValueFromMouseEvent, updateValue]
+    [disabled, getValueFromMouseEvent, updateValue],
   );
 
   const handleKeyDown = useCallback(
@@ -110,7 +110,7 @@ const Slider = ({
         updateValue(currentValue - step);
       }
     },
-    [updateValue, currentValue, step]
+    [updateValue, currentValue, step, disabled],
   );
 
   const sliderComponent = (
@@ -118,11 +118,11 @@ const Slider = ({
       tabIndex={0}
       ref={containerRef}
       className={cn(
-        "relative w-full h-[50px] group cursor-pointer",
-        "before:content-[''] before:absolute before:inset-0 before:bg-black/50",
+        "group relative h-[50px] w-full cursor-pointer",
+        "before:absolute before:inset-0 before:bg-black/50 before:content-['']",
         "focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
-        className
+        className,
       )}
       style={{
         background: "url(/stone-texture.webp) repeat",
@@ -175,11 +175,11 @@ const SliderThumb = ({ value, min, max }: SliderThumbProps) => {
   return (
     <div
       className={cn(
-        "absolute top-0 bottom-0 w-5 pointer-events-none",
+        "pointer-events-none absolute top-0 bottom-0 w-5",
         "border-3 border-[#080808]",
         "group-hover:border-[#f9f9f9] group-focus:border-[#f9f9f9] group-focus:outline-none",
-        "before:content-[''] before:absolute before:inset-0 before:border-l-3 before:border-t-3 before:border-[#aaaaaa]",
-        "after:content-[''] after:absolute after:inset-0 after:border-r-3 after:border-b-3 after:border-black/20"
+        "before:absolute before:inset-0 before:border-[#aaaaaa] before:border-t-3 before:border-l-3 before:content-['']",
+        "after:absolute after:inset-0 after:border-black/20 after:border-r-3 after:border-b-3 after:content-['']",
       )}
       style={{
         left: `max(calc(${percentage}% - 20px), 0%)`,
@@ -230,7 +230,7 @@ const SliderValue = ({
     checkOverflow();
     window.addEventListener("resize", checkOverflow);
     return () => window.removeEventListener("resize", checkOverflow);
-  }, [text]);
+  }, []);
 
   useEffect(() => {
     if (!isOverflowing) {
@@ -285,11 +285,11 @@ const SliderValue = ({
   return (
     <div
       ref={containerRef}
-      className="absolute inset-[3px] py-2 overflow-hidden flex justify-center"
+      className="absolute inset-[3px] flex justify-center overflow-hidden py-2"
     >
       <div
         ref={textRef}
-        className="text-2xl font-minecraft text-[#f9f9f9] text-center text-shadow-[2px_2px_0_#3f3f3f] text-nowrap transition-transform duration-100 ease-linear w-fit"
+        className="w-fit text-nowrap text-center font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f] transition-transform duration-100 ease-linear"
         style={{
           transform: `translateX(${translateX}px)`,
         }}

@@ -6,9 +6,9 @@ export default function OptionsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center h-screen bg-black/20 backdrop-blur-sm">
+    <div className="flex h-screen flex-col items-center bg-black/20 backdrop-blur-sm">
       {children}
-      <span className="p-4 mt-auto w-full max-w-3xl grid">
+      <span className="mt-auto grid w-full max-w-3xl p-4">
         <DoneButton />
       </span>
     </div>

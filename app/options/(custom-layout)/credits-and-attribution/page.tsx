@@ -1,16 +1,16 @@
-import { Button, buttonVariants } from "@/app/_components/button";
-import { DoneButton } from "@/app/_components/done-button";
 import Link from "next/link";
 import { Fragment } from "react";
+import { Button, buttonVariants } from "@/app/_components/button";
+import { DoneButton } from "@/app/_components/done-button";
 
 export default function CreditsAndAttribution() {
   return (
     <Fragment>
-      <h1 className="text-2xl font-minecraft text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f] p-4">
+      <h1 className="p-4 font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]">
         Credits & Attribution
       </h1>
-      <div className="flex flex-col items-center gap-4 grow w-full p-4 pt-12">
-        <div className="flex flex-col gap-4 w-fit min-w-xl justify-center h-full">
+      <div className="flex w-full grow flex-col items-center gap-4 p-4 pt-12">
+        <div className="flex h-full w-fit min-w-xl flex-col justify-center gap-4">
           <Button>Credits</Button>
           <Link
             href="https://aka.ms/MinecraftJavaAttribution"

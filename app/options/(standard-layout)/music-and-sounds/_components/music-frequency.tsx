@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  MusicFrequency as MusicFrequencyType,
+  type MusicFrequency as MusicFrequencyType,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const MusicFrequency = () => {
   const frequencies: MusicFrequencyType[] = ["default", "frequent", "constant"];

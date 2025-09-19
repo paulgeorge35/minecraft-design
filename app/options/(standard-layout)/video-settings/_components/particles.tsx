@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  Particles as ParticlesType,
+  type Particles as ParticlesType,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const Particles = () => {
   const particles: ParticlesType[] = ["all", "decreased", "minimal"];

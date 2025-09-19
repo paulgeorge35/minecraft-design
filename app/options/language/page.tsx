@@ -1,17 +1,17 @@
+import Link from "next/link";
 import { buttonVariants } from "@/app/_components/button";
 import { DoneButton } from "@/app/_components/done-button";
 import { Spinner } from "@/app/_components/spinner";
-import Link from "next/link";
 
 export default function Language() {
   return (
-    <div className="flex flex-col items-center h-screen bg-black/20 backdrop-blur-sm">
-      <h1 className="text-2xl font-minecraft text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f] p-4">
+    <div className="flex h-screen flex-col items-center bg-black/20 backdrop-blur-sm">
+      <h1 className="p-4 font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]">
         Language
       </h1>
-      <div className="flex flex-col items-center gap-4 grow border-y-2 border-[#3f3f3f] w-full relative p-4">
-        <div className="absolute inset-0 bg-black/40 border-y-2 border-black" />
-        <div className="flex flex-col gap-12 w-fit min-w-xl justify-center">
+      <div className="relative flex w-full grow flex-col items-center gap-4 border-[#3f3f3f] border-y-2 p-4">
+        <div className="absolute inset-0 border-black border-y-2 bg-black/40" />
+        <div className="flex w-fit min-w-xl flex-col justify-center gap-12">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             <div className="col-span-2">
               <Spinner />
@@ -19,8 +19,8 @@ export default function Language() {
           </div>
         </div>
       </div>
-      <span className="p-4 mt-auto w-full max-w-3xl grid grid-cols-2 gap-4">
-        <p className="col-span-2 font-minecraft text-xl text-[#aaaaaa] text-shadow-[2px_2px_0_#080808] w-full text-center">
+      <span className="mt-auto grid w-full max-w-3xl grid-cols-2 gap-4 p-4">
+        <p className="col-span-2 w-full text-center font-minecraft text-[#aaaaaa] text-shadow-[2px_2px_0_#080808] text-xl">
           (Language translations may not be 100% accurate)
         </p>
         <Link

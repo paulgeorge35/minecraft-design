@@ -3,20 +3,20 @@ import { ForceUnicode, JapaneseGlyphs } from "./_components";
 
 export default function FontSettingsPage() {
   return (
-    <div className="flex flex-col items-center h-screen bg-black/20 backdrop-blur-sm">
-      <h1 className="text-2xl font-minecraft text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f] p-4">
+    <div className="flex h-screen flex-col items-center bg-black/20 backdrop-blur-sm">
+      <h1 className="p-4 font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]">
         Font Settings
       </h1>
-      <div className="flex flex-col items-center gap-4 grow border-y-2 border-[#3f3f3f] w-full relative min-h-0">
-        <div className="absolute inset-0 bg-black/40 border-y-2 border-black" />
-        <div className="flex flex-col w-fit min-w-xl justify-center overflow-y-auto">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2  overflow-y-auto p-4">
+      <div className="relative flex min-h-0 w-full grow flex-col items-center gap-4 border-[#3f3f3f] border-y-2">
+        <div className="absolute inset-0 border-black border-y-2 bg-black/40" />
+        <div className="debug flex w-3xl flex-col justify-center overflow-y-auto">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 overflow-y-auto p-4">
             <ForceUnicode />
             <JapaneseGlyphs />
           </div>
         </div>
       </div>
-      <span className="p-4 mt-auto w-full max-w-3xl grid">
+      <span className="mt-auto grid w-full max-w-3xl p-4">
         <DoneButton />
       </span>
     </div>

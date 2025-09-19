@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  AttackIndicator as AttackIndicatorType,
+  type AttackIndicator as AttackIndicatorType,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const AttackIndicator = () => {
   const attackIndicator: AttackIndicatorType[] = ["crosshair", "hotbar", "off"];

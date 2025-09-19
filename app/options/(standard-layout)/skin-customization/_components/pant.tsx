@@ -1,8 +1,8 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import { SettingsContext } from "@/app/_components/settings-context";
-import { use } from "react";
 
 type PantSide = "left" | "right";
 export const Pant = ({ side }: { side: PantSide }) => {

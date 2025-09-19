@@ -1,11 +1,11 @@
 "use client";
 
+import { use } from "react";
 import { Button } from "@/app/_components/button";
 import {
-  ReduceFpsWhen as ReduceFpsWhenType,
+  type ReduceFpsWhen as ReduceFpsWhenType,
   SettingsContext,
 } from "@/app/_components/settings-context";
-import { use } from "react";
 
 export const ReduceFpsWhen = () => {
   const reduceFpsWhen: ReduceFpsWhenType[] = ["afk", "minimized"];

@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface SpinnerProps {
   className?: string;
@@ -25,13 +25,13 @@ export const Spinner = ({ className }: SpinnerProps) => {
   return (
     <div
       className={cn(
-        "flex justify-center items-center gap-2 p-2 text-2xl font-minecraft text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]",
-        className
+        "flex items-center justify-center gap-2 p-2 font-minecraft text-2xl text-[#f9f9f9] text-shadow-[2px_2px_0_#3f3f3f]",
+        className,
       )}
     >
-      {Array.from({ length: 3 }).map((_, index) => (
+      {Array.from([0, 1, 2]).map((x, index) => (
         <span
-          key={index}
+          key={`spinner-${x}`}
           className={cn({
             uppercase: activeIndex === index,
           })}
