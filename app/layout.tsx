@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { SettingsProvider } from "./_components/settings-context";
 import "./globals.css";
+import { ServerProvider } from "./_components/servers-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,7 +55,9 @@ export default function RootLayout({
           backgroundSize: "cover",
         }}
       >
-        <SettingsProvider>{children}</SettingsProvider>
+        <SettingsProvider>
+          <ServerProvider>{children}</ServerProvider>
+        </SettingsProvider>
       </body>
     </html>
   );

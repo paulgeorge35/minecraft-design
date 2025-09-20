@@ -1,5 +1,6 @@
 import { Button } from "../_components/button";
 import { DoneButton } from "../_components/done-button";
+import { LinkButton } from "../_components/link-button";
 import { Spinner } from "../_components/spinner";
 
 export default function Multiplayer() {
@@ -20,8 +21,10 @@ export default function Multiplayer() {
       <span className="mt-auto grid w-full max-w-3xl grid-cols-4 gap-2 p-4">
         <span className="col-span-4 grid grid-cols-3 gap-2">
           <Button disabled>Join a Server</Button>
-          <Button>Direct Connection</Button>
-          <Button>Add Server</Button>
+          <LinkButton href="/multiplayer/direct-connection">
+            Direct Connection
+          </LinkButton>
+          <LinkButton href="/multiplayer/add-server">Add Server</LinkButton>
         </span>
         <Button disabled>Edit</Button>
         <Button disabled>Delete</Button>

@@ -12,6 +12,8 @@ export type Clouds = "fast" | "fancy" | "off";
 export type Particles = "all" | "decreased" | "minimal";
 export type Toggle = "hold" | "toggle";
 export type ChatVisibility = "shown" | "hidden" | "commands-only";
+export type Narrator = "all" | "chat" | "system" | "off";
+export type TextBackground = "chat" | "everywhere";
 
 type SettingsContextType = {
   fov: number;
@@ -117,6 +119,21 @@ type SettingsContextType = {
       forceUnicode: boolean;
       japaneseGlyphs: boolean;
     };
+  };
+  accessibility: {
+    narrator: Narrator;
+    highContrast: boolean;
+    textBackground: TextBackground;
+    notificationTime: number;
+    darknessPulsing: number;
+    damageTilt: number;
+    hideLightningFlashes: boolean;
+    monochromeLogo: boolean;
+    panoramaScrollSpeed: number;
+    hideSplashTexts: boolean;
+    narratorHotkey: boolean;
+    rotateWithMinecarts: boolean;
+    highContrastBlockOutlines: boolean;
   };
 };
 
@@ -224,6 +241,21 @@ const defaultSettings: SettingsContextType = {
       forceUnicode: false,
       japaneseGlyphs: false,
     },
+  },
+  accessibility: {
+    narrator: "off",
+    highContrast: false,
+    textBackground: "chat",
+    notificationTime: 1,
+    darknessPulsing: 100,
+    damageTilt: 100,
+    hideLightningFlashes: false,
+    monochromeLogo: false,
+    panoramaScrollSpeed: 100,
+    hideSplashTexts: false,
+    narratorHotkey: true,
+    rotateWithMinecarts: false,
+    highContrastBlockOutlines: false,
   },
 };
 

@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Narrator } from "../../(custom-layout)/accessibility-settings/_components";
 import {
   Chat,
   ChatDelay,
@@ -9,7 +10,6 @@ import {
   FocusedHeight,
   HideMatchedNames,
   LineSpacing,
-  Narrator,
   OnlySecureChat,
   PromptLinks,
   ReducedDebugInfo,

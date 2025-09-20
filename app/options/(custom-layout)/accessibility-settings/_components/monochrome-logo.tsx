@@ -4,21 +4,22 @@ import { use } from "react";
 import { Button } from "@/app/_components/button";
 import { SettingsContext } from "@/app/_components/settings-context";
 
-export const Narrator = () => {
+export const MonochromeLogo = () => {
   const { settings, setSettings } = use(SettingsContext);
   return (
     <Button
       onClick={() => {
         setSettings({
           ...settings,
-          chat: {
-            ...settings.chat,
-            narrator: !settings.chat.narrator,
+          accessibility: {
+            ...settings.accessibility,
+            monochromeLogo: !settings.accessibility.monochromeLogo,
           },
         });
       }}
+      tooltip="Changes the Mojang Studios loading screen background color to black."
     >
-      Narrator: {settings.chat.narrator ? "ON" : "OFF"}
+      Monochrome Logo: {settings.accessibility.monochromeLogo ? "ON" : "OFF"}
     </Button>
   );
 };

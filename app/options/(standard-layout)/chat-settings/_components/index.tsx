@@ -7,7 +7,6 @@ export * from "./command-suggestions";
 export * from "./focused-height";
 export * from "./hide-matched-names";
 export * from "./line-spacing";
-export * from "./narrator";
 export * from "./only-secure-chat";
 export * from "./prompt-links";
 export * from "./reduced-debug-info";
